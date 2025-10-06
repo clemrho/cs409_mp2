@@ -1,0 +1,439 @@
+.App {
+  text-align: left;
+}
+
+.topnav {
+  padding: 12px 16px;
+  border-bottom: none;
+  background: #6d28d9; /* violet */
+}
+
+.topnav a {
+  margin: 10px;
+  margin-right: 12px;
+  color: #fb923c; /* orange */
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 18px;
+  font-family: 'Arial Rounded MT Bold', Arial, sans-serif;
+}
+
+.topnav a:hover {
+  text-decoration: underline;
+}
+
+.main {
+  padding: 16px;
+  background-color: #fffbea;
+}
+
+/* Theme */
+:root {
+  --bg-yellow: #fffbea;
+  --primary-orange: #f97316;
+  --text-grey: #6b7280;
+  --violet: #7c3aed;
+  --violet-200: rgba(124, 58, 237, 0.2);
+}
+
+/* List page specific */
+.listPage {
+  background: var(--bg-yellow);
+  padding: 16px;
+  border-radius: 12px;
+}
+
+/* Gallery page specific */
+.galleryPage {
+  background: var(--bg-yellow);
+  padding: 16px;
+  border-radius: 12px;
+}
+
+.pageTitle {
+  color: var(--violet);
+  margin-top: 0;
+  text-align: center;
+  font-size: 2.7rem;
+  font-weight: 800;
+  font-family: 'Arial Rounded MT Bold', Arial, sans-serif;
+}
+
+.controlsFrame {
+  background: rgba(124, 58, 237, 0.3); /* 30% transparent violet */
+  padding: 20px;
+  border-radius: 16px;
+  margin-bottom: 20px;
+}
+
+.controlsStack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+}
+
+.galleryFiltersContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.searchBar {
+  width: 100%;
+  max-width: 500px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1.5px solid var(--violet-200);
+  background: #fffbea;
+  box-shadow: 0 2px 10px rgba(109, 40, 217, 0.08);
+  font-size: 1.2rem;
+  font-family: 'Arial Rounded MT Bold', Arial, sans-serif;
+}
+
+.searchBar::placeholder {
+  color: #9ca3af;
+}
+
+.searchBar:focus {
+  outline: none;
+  border-color: #6d28d9;
+  box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.15);
+}
+
+.filterRow {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.filterSubdiv {
+  background:rgba(124, 58, 237, 0.3);
+  padding: 20px;
+  border-radius: 12px;
+  width: 100%;
+}
+
+.filterSubdivTitle {
+  color: orangered;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  font-size: 1.4rem;
+  margin: 0 0 12px 0;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.areaChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: 600px;
+}
+
+.filterLabel {
+  color: var(--primary-orange);
+  font-weight: bold;
+  font-size: 1.1rem;
+  font-family: 'Arial Rounded MT Bold', Arial, sans-serif;
+}
+
+.filterSelect {
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1.5px solid var(--violet-200);
+  background: #fffbea;
+  box-shadow: 0 2px 10px rgba(109, 40, 217, 0.08);
+  font-size: 1.1rem;
+  font-family: 'Arial Rounded MT Bold', Arial, sans-serif;
+}
+
+.filterSelect:focus {
+  outline: none;
+  border-color: #6d28d9;
+  box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.15);
+}
+
+.emptyState {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-grey);
+  font-size: 1.2rem;
+  font-style: italic;
+}
+
+/* List stack layout */
+.listStack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.listItem {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px;
+  background: #f3fbf5; /* very shallow leafy green */
+  border: 2px solid var(--violet);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.listItemImage {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid var(--violet-200);
+  flex-shrink: 0;
+}
+
+.listItemContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.listItemTitle {
+  margin: 0;
+  font-size: 1.2rem;
+  line-height: 1.3;
+  color: var(--primary-orange);
+  font-weight: 800;
+  font-family: 'Arial Rounded MT Bold', Arial, sans-serif;
+}
+
+/* Gallery grid layout */
+.galleryGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.galleryCard {
+  border: 2px solid var(--violet);
+  border-radius: 16px;
+  padding: 12px;
+  background: #f3fbf5; /* very shallow leafy green */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.galleryCard:hover {
+  transform: translateY(-2px);
+}
+
+.galleryImage {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 14px; /* rounded square */
+  border: 2px solid var(--violet-200);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.galleryTitle {
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 1.3;
+  color: var(--primary-orange);
+  font-weight: 800;
+  text-align: center;
+}
+
+/* Detail page specific */
+.detailPage {
+  background-color: var(--bg-yellow); /* Very shallow yellow */
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid var(--violet); /* Violet border */
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center the detailContainer */
+}
+
+.detailContainer {
+  background: #f3fbf5; /* very shallow leafy green */
+  border: 2px solid var(--violet);
+  border-radius: 16px;
+  padding: 25px;
+  max-width: 800px; /* Constrain width for better readability */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content within the container */
+  gap: 15px; /* Spacing between elements */
+}
+
+.detailImage {
+  width: 100%;
+  max-width: 300px; /* Make image a bit smaller */
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 2px solid var(--violet-200);
+  margin-bottom: 10px;
+}
+
+.detailMealId {
+  color: var(--text-grey);
+  font-size: 1rem;
+  margin: 0 0 15px 0;
+  text-align: center;
+  font-family: 'Arial Rounded MT Bold', Arial, sans-serif;
+}
+
+.detailSectionTitle {
+  color: var(--violet);
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  text-align: center;
+  font-family: 'Arial Rounded MT Bold', Arial, sans-serif;
+}
+
+.detailMealTitle {
+  color: var(--primary-orange);
+  font-size: 2.4rem;
+  font-weight: bold;
+  margin: 0;
+  text-align: center;
+  font-family: 'Arial Rounded MT Bold', Arial, sans-serif;
+}
+
+.detailCategoryArea {
+  color: var(--violet);
+  font-size: 1.3rem;
+  margin: 0;
+  font-family: 'Arial Rounded MT Bold', Arial, sans-serif;
+}
+
+.detailIngredientsList {
+  list-style: disc; /* Default bullet points */
+  padding-left: 20px;
+  width: 100%;
+  max-width: 600px; /* Constrain width */
+  color: #333;
+  line-height: 1.6;
+  font-family: 'Arial Rounded MT Bold', Arial, sans-serif;
+  font-size: 1.1rem;
+}
+
+.detailIngredientsList li {
+  margin-bottom: 5px;
+}
+
+.detailInstructionsList {
+  list-style: disc; /* Unordered list */
+  padding-left: 20px;
+  width: 100%;
+  max-width: 600px; /* Constrain width */
+  color: #333;
+  line-height: 1.6;
+  font-family: 'Arial Rounded MT Bold', Arial, sans-serif;
+  font-size: 1.1rem;
+}
+
+.detailInstructionsList li {
+  margin-bottom: 8px;
+}
+
+.detailNavButtons {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.btnViolet {
+  display: inline-block;
+  background: var(--violet);
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 12px 16px;
+  border-radius: 2px;
+  font-family: 'Arial Rounded MT Bold', Arial, sans-serif;
+  font-size: 1.1em;
+}
+
+.btnViolet:hover {
+  background: #6d28d9; /* slightly darker violet */
+}
+
+.btnViolet::before {
+  content: "";
+}
+
+.listControls {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.card {
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.card img {
+  width: 100%;
+  height: 160px;
+  object-fit: contain;
+  display: block;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.chip {
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid #e5e5e5;
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: 'Arial Rounded MT Bold', Arial, sans-serif;
+}
+
+.chip.active {
+  background: #111827;
+  color: #fff;
+  border-color: #111827;
+}
+
+.detailImage {
+  max-width: 320px;
+  width: 100%;
+  height: auto;
+}
+
+.navButtons {
+  display: flex;
+  gap: 8px;
+}
