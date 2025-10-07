@@ -305,7 +305,7 @@ function DetailView() {
           
           <h3 className="detailSectionTitle">Instructions</h3>
           <ul className="detailInstructionsList">
-            {meal.strInstructions?.replace(/(\d+\.\s*)/g, '@@@$1').split('@@@').filter(Boolean).map((step, index) => (
+            {meal.strInstructions?.replace(/\d+\.\s*/g, '').split(/(?<=[.!?])\s+/).filter(Boolean).map((step, index) => (
               <li key={index}>{step.trim()}</li>
             ))}
           </ul>
