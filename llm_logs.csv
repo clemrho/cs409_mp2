@@ -1,0 +1,668 @@
+please show this one step by step: MP 2: New Clear REACTive App
+Due: October 7th, 2025, 11:59PM CDT
+Table of Contents
+Assignment
+Grading Breakdown
+Tips
+Rules
+Getting Started
+Submission Details
+Assignment
+Task
+In this programming assignment, you will implement a front-end interface using React that consumes an API. Please read through the entire MP before you start.
+
+Requirements
+Create a single-page React app that lets users interact with the data from one of the following APIs.
+
+TMDB
+Pokemon
+NASA
+Marvel
+Jelly Belly Wiki
+The Meal DB
+Art Institute of Chicago
+More APIs if you want to explore here (please keep it class appropriate) 🫵🤨📸.
+Note that you may need to create an account and/or acquire an API key for some of the APIs. GitHub won’t restrict you from pushing API keys, but may send an email to say some keys are exposed. Because of this, please don't use any paid APIs.
+
+The API you are working with may become temporarily unavailable. If/when this happens, it doesn't mean you are blocked from working on the MP. You can mock the data, i.e. create a local hard coded response and use that instead of making the request.
+
+You may need to deal with APIs having rate-limiting policies. You can find ways to get around them like caching the results of large and common API calls
+
+These are also good opportunities to think about how your app should handle errors.
+
+Your app should have the following features:
+
+A list view: where users can input a query into a search bar and the app returns a list of results that match the query (i.e. searching movies or pokemon). There should also be a way to sort the search results based on different properties of the results (such as the name or rank) and of specifying an ordering (ascending and descending). Also, the search bar should filter as you type. You can sort and filter in the client side.
+A gallery view: that displays some kind of image media from the chosen API (gallery of movie posters). The gallery view should also have some kind filtering attribute where users can select one or many attributes and filter the gallery by them (i.e. genres of films or music).
+A detail view: When an item in the search view or the gallery view is clicked, the app should display the different attributes of the selected item. Also, this view should have previous and next buttons (can be implemented with arrows) that lets the user cycle through the list of objects. A detail view should have a specific route when navigated to. Basically, a user should be able to access the detail route through a specific url.
+Here's an old example that fulfills these requirements: https://www.youtube.com/watch?v=DmDZuAr7QJE
+
+You will also be required to use following tools:
+
+Use React Router for routing.
+Use Axios for API calls.
+Use TypeScript.
+Grading Breakdown
+Total Points : 100
+
+List View:
+
+Does the list view display relevant items from the chosen API ? (4 points)
+Does the search bar filter down items based on the search? (8 points)
+Can you sort by at least 2 properties? (8 points)
+Can the properties be sorted in Ascending and Descending order? (8 points)
+Gallery View:
+
+Is the gallery composed of item media? (4 points)
+Does clicking on a filter change results accordingly? (8 points)
+Details View:
+
+Does clicking on an item in List View take you to the Details View? (10 points)
+Does clicking on an item in Gallery View take you to the Details View? (10 points)
+Does the Details View contain item details? (8 points)
+Do the PREVIOUS and NEXT buttons work correctly? (10 points)
+Other:
+
+Does the implementation use React Router and TypeScript? (12 points)
+Design (10 points)
+Tips
+Start early! This is first MP that uses React so start ahead.
+Visit https://reactjs.org/docs/faq-structure.html for examples on how to structure your React files.
+You may use a React component library for this MP.
+We recommend using Normalize.css.
+We recommend using CSS Modules.
+Rules
+This is an individual assignment. No collaboration is permitted.
+It is not permitted to copy/paste code that is not your own. You are, however, free to look at different code sources for inspiration and clarity. All sources (code as well as reading material) that you reference to complete this assignment must be declared in the submission.
+There should be no use of inline styling.
+No inline script tags should be used.
+HTML tables cannot be used for layout.
+If you think something you’re doing might not be acceptable, please ask on Piazza.
+We strongly recommend using Create React App to get your MP started. If you ignore this, we will not help with any environment issues.
+Getting Started
+Use Create React App (CRA) (see below) to generate your MP starter code in a directory of your choice.
+After running npm start open a browser and go to http://localhost:3000/ to view your page.
+Open up src/app.js to start building your first component. Visit https://reactjs.org/docs/getting-started.html for many official, high quality resources to help get you started.
+Create React App
+create-react-app is a tool that allows you to generate a react starter project that requires no immediate configuration. Visit the getting started guide to read more. You should use create-react-app with the Typescript template.
+
+You may be wondering how the command npx create-react-app my-app --template typescript works and why there is no installation step. Click here for an explanation of npx.
+
+Submission Details
+Here's what you will need to submit:
+
+Clone the repository git clone git@github.com:cs409-fa25/mp2.git
+On local machine, run npx create-react-app mp2 --template typescript to create starter code and cd mp2 to enter into React app directory. The create-react-app will set up the git environment for you.
+If it doesn't work becausee the folder exists, instead, make the react app in a different directory and copy it over into this repo OR copy the .github folder and all files within to your created React project.
+Add "homepage": "https://<your-github-username>.github.io/<your-github-repo-name>" to your package.json
+{
+  "name": "your-app-name",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "https://<your-github-username>.github.io/<your-github-repo-name>",
+  //...
+}
+In your BrowserRouter or Router component, set basename="/<your-github-repo-name>"
+<BrowserRouter basename="/<your-github-repo-name>">
+  ...
+</BrowserRouter>
+Note: Should use <Link/> component instead of <a> to have the same basename.
+Create a public repository on GitHub. Make sure "Initialize this repository with a README" is not checked.
+Set GitHub Pages Deployment Source to Github Actions
+In your Github repo, go to Settings > Pages > Build and Deployment > Source > Select "GitHub Actions"
+Change the remote url for your local mp2 directory to the url of the new public repository you created.
+git remote rename origin old-origin
+git remote add origin git@github.com:<your-github-username>/mp2.git
+# run `git remote -v` to check your origin 
+Commit and push your local changes to this new repository.
+git add . # "." adds all changed files, can also add specific files too
+git commit -m "[my-commit-message]" # message should be clear and meaningful
+git branch -M main
+git push origin main
+.github/workflows/deploy.yml file automatically makes a GitHub CI pipeline run to deploy your code. After the pipeline finishes, your site should be live at https://<your-github-username>.github.com/mp2. It should take around 1 minute.
+Make a video (3 minutes max) demo-ing your deployed website and upload it to Google Drive. Share it with uiuc.web.programming@gmail.com and put the share link in the Google form.
+Show the url to prove you are on your deployed website. Then show all the requirement features you fulfilled in your mp.
+If you were unable to deploy your website, you can demo your mp locally for some point deduction (hard capped at 80%)
+Just make sure you do git status and git log first so we can see your last edits.
+Fill out and submit the form here.
+I'll update the instructions parsing to remove all numbered format "N." from the instructions text to simplify the display.
+
+Let me update your mp2/package.json to versions compatible with Create React App 5 so react-scripts installs. Then you can reinstall and start the server.
+I'll bump your dependencies to CRA 5 + React 18 + React Router 6 so react-scripts resolves. Then you can reinstall and start.
+I’m going to update your mp2/package.json to versions compatible with Create React App 5 so react-scripts installs. Then I’ll share the exact commands to reinstall and start.
+I'll fix your dependency versions in package.json to CRA 5 + React 18 + React Router 6 so react-scripts installs. Then run the reinstall/start commands.
+I’m updating your dependencies to versions compatible with Create React App 5 and React 18 so react-scripts installs and npm start works. Then I’ll provide the reinstall commands.
+I'll update mp2/package.json to use CRA 5 + React 18 + React Router 6 compatible versions so react-scripts installs, then share the exact reinstall/start commands.
+I'm going to update mp2/package.json to use Create React App 5 with React 18 and React Router 6 so react-scripts installs and npm start works, then I'll give you the reinstall commands.
+Your error is because react-scripts isn’t installed (version set to 0.0.0) and the deps target React 19/Router 7. Switch to CRA 5 + React 18 + React Router 6.
+Update mp2/package.json
+Replace the entire file with this:
+Notes:
+Removed @testing-library/dom (pulled transitively).
+Removed devDependencies entry for @types/react-router-dom v5 (not needed for v6).
+Your code already uses React Router v6 APIs, so no code changes needed.
+Reinstall and start
+Run from ~/DevCode/uiuc_cs409_fa25/mp2:
+If you see Node engine errors, use Node 18 LTS:
+After this, the dev server should open at http://localhost:3000 and your List/Gallery/Detail views will work.
+I'll fix the react-scripts not found error by updating mp2/package.json to CRA 5 + React 18 compatible versions, then reinstall dependencies and start the dev server in the background.
+I'll update mp2/package.json to stable CRA 5 + React 18 + React Router 6 versions, then reinstall dependencies, and start the dev server in the background.
+9 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+I updated mp2/package.json to CRA 5 + React 18 + React Router 6 and reinstalled. I started the dev server in the background; open http://localhost:3000.
+If the browser doesn’t auto-open:
+Run: cd ~/DevCode/uiuc_cs409_fa25/mp2 && npm start
+Deployment reminder:
+Keep homepage set to your GitHub Pages URL.
+Router uses basename={process.env.PUBLIC_URL} already via index.tsx.
+I'll check your npm registry, verify react-scripts availability, install it explicitly, then start the dev server.
+https://registry.npmjs.org/
+5.0.1
+
+npm error code ELSPROBLEMS
+npm error invalid: react-scripts@0.0.0 /Users/yanzelu/DevCode/uiuc_cs409_fa25/mp2/node_modules/react-scripts
+npm error A complete log of this run can be found in: /Users/yanzelu/.npm/_logs/2025-10-06T09_04_19_694Z-debug-0.log
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+I force-installed react-scripts@5.0.1, reinstalled dependencies, and started the dev server. Open http://localhost:3000.
+If it doesn’t open:
+Run: cd ~/DevCode/uiuc_cs409_fa25/mp2 && npm start
+Optional:
+If you want Node via nvm later, install nvm first: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash, then restart your shell.
+now, instead of pokemon, I would rather prefer a recipe website, usage of api here: Free Recipe API
+
+Thumbs Up Icon Free Recipe API Support
+The API and site will always remain free at point of access.
+
+API Icon Test API Keys
+You can use the test API key "1" during development of your app or for educational use (see test links below).
+However you must become a supporter if releasing publicly on an appstore.
+
+Up Arrow Icon API Production Key Upgrade
+All supporters have access to the beta version of the API which allows mutiple ingredient filters.
+You also get access to adding your own meals and images. You can also list the full database rather than limited to 100 items.
+Please sign up on Paypal and we will email you the upgraded API key.
+
+Email Icon Contact
+Email: thedatadb (at) gmail.com
+section seperator
+V1 API
+Code Icon API Methods using the developer test key '1' in the URL
+
+
+Search meal by name
+www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata
+
+List all meals by first letter
+www.themealdb.com/api/json/v1/1/search.php?f=a
+
+Lookup full meal details by id
+www.themealdb.com/api/json/v1/1/lookup.php?i=52772
+
+Lookup a single random meal
+www.themealdb.com/api/json/v1/1/random.php
+
+Lookup a selection of 10 random meals
+*Premium API Only
+www.themealdb.com/api/json/v1/1/randomselection.php
+
+List all meal categories
+www.themealdb.com/api/json/v1/1/categories.php
+
+Latest Meals
+*Premium API Only
+www.themealdb.com/api/json/v1/1/latest.php
+
+List all Categories, Area, Ingredients
+www.themealdb.com/api/json/v1/1/list.php?c=list
+www.themealdb.com/api/json/v1/1/list.php?a=list
+www.themealdb.com/api/json/v1/1/list.php?i=list
+
+Filter by main ingredient
+www.themealdb.com/api/json/v1/1/filter.php?i=chicken_breast
+
+Filter by multi-ingredient
+*Premium API Only
+www.themealdb.com/api/json/v1/1/filter.php?i=chicken_breast,garlic,salt
+
+Filter by Category
+www.themealdb.com/api/json/v1/1/filter.php?c=Seafood
+
+Filter by Area
+www.themealdb.com/api/json/v1/1/filter.php?a=Canadian
+
+Meal Thumbnail Images
+Add /preview to the end of the meal image URL
+/images/media/meals/llcbn01574260722.jpg/small
+/images/media/meals/llcbn01574260722.jpg/medium
+/images/media/meals/llcbn01574260722.jpg/large
+Small meal thumbnail
+
+Ingredient Thumbnail Images
+*URL's match the ingredient name with an underscore for any spaces.
+
+www.themealdb.com/images/ingredients/lime.png
+www.themealdb.com/images/ingredients/lime-small.png
+www.themealdb.com/images/ingredients/lime-medium.png
+www.themealdb.com/images/ingredients/lime-large.png
+
+I'll switch the app from PokéAPI to TheMealDB: add a new API client, update List, Gallery, and Detail views to use meals, implement multi-select category filters, and wire prev/next across the current result set using sessionStorage. Then I’ll move remaining inline styles to CSS.
+Add TheMealDB axios client and types
+Refactor List View to search meals, sort name/id
+Implement Gallery View with multi-category filter
+Refactor Detail View to show meal details with prev/next
+Store current result IDs in sessionStorage for prev/next
+Move remaining inline styles into CSS classes
+I'll add a typed TheMealDB client and models, then update views.
+Add TheMealDB axios client and types
+Refactor List View to search meals, sort name/id
+Refactor List View to search meals, sort name/id
+Refactor List View to search meals, sort name/id
+Implement Gallery View with multi-category filter
+Refactor Detail View to show meal details with prev/next
+Store current result IDs in sessionStorage for prev/next
+Move remaining inline styles into CSS classes
+Add TheMealDB axios client and types
+Refactor List View to search meals, sort name/id
+Implement Gallery View with multi-category filter
+Refactor Detail View to show meal details with prev/next
+Store current result IDs in sessionStorage for prev/next
+Move remaining inline styles into CSS classes
+Switched to TheMealDB. Added a typed Axios client and refactored all views:
+List: search meals by name, sort by name/id, shows thumbnails.
+Gallery: multi-select category chips; unions results client-side.
+Detail: meal info, ingredients, instructions, prev/next using stored sequence.
+Try it:
+The dev server is running; open http://localhost:3000/mp2
+Search meals, filter gallery by categories, click to details, use prev/next.
+first, go over the list view, the layout is ugly, give it backgound very shallow yellow, make the font vivid, and we don't require id to same big as the name, should be small and grey(no #) and the name should be large, and orange, the picture should be some round shape square at the border, so as the outer list cards, make the secondary color as violet, and make some inspirations from the second pictures.
+
+I'll restyle the List View: add new CSS classes and update the ListView markup to use them (yellow background, orange titles, small grey IDs, rounded images and cards with violet accents). Then I’ll check for any linter issues.
+Restyled List View:
+Soft yellow background container, violet accents.
+Rounded “square” cards and images; subtle shadow.
+Meal name large and orange; ID small, grey, no hash.
+Inputs/selects get rounded borders with violet tint.
+Updated markup in ListView to use new classes: listPage, mealGrid, mealCard, mealThumb, mealTitle, mealId.
+If you want the violet page title styled in CSS instead of inline, I can add a .pageTitle class and swap it.
+Done. List View now has:
+Background: very light yellow, violet accents
+Cards/images: rounded-square borders, subtle shadow
+Title: large, vivid orange meal name
+ID: small, grey (no #)
+Controls: rounded inputs/selects with violet-tinted borders
+Key classes used
+list container: listPage
+grid: grid mealGrid
+card: mealCard
+image: mealThumb
+title: mealTitle
+id: mealId
+Want me to move the violet page title color into CSS (e.g., .pageTitle) instead of inline?
+yes
+
+I'll move the violet page title color into a reusable CSS class and update the List View to use it.
+Moved the page title color to CSS.
+Added .pageTitle in App.css and updated List View header to use it.
+change "open details" to Details, with style like this one in the picture
+
+I'll update the link text to "Details" and style it like the provided button (violet background, white uppercase text, with a leading plus via CSS). Then I'll apply the same to the Gallery cards.
+Changed link text to “Details” and styled it like your reference.
+New class .btnViolet (violet background, white uppercase, bold, leading “+ ”).
+Applied to both List and Gallery cards.
+install font drama regular
+
+I wired the font: added @font-face in src/index.css and created public/fonts/.
+To finish installation, add these files into mp2/public/fonts/:
+Drama-Regular.woff2
+Drama-Regular.woff
+How to use
+Already available via font-family: 'Drama Regular'
+You set it on the button; you can also apply globally or via the utility:
+Class: font-drama
+CSS: font-family: 'Drama Regular', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif
+If you share the actual font files, I can drop them into public/fonts/ for you.
+to run npm website
+
+Here’s how to run it locally:
+Terminal commands:
+Open:
+If you see “react-scripts: command not found,” run:
+slighty decorate the search bar, make it more modern. and made the background insides the purple border to be very shallow tree leaves greenish. Then, change the navbar style, make it font orange, with same 6d28d9 violet background.
+
+Search controls: rounded 12px, subtle violet shadow, focus ring, modern placeholder.
+Card interior: very light leafy green background inside violet border.
+Navbar: violet background (#6d28d9), orange links, bold, underline on hover.
+Want thicker navbar height or centered nav links?
+1. some minor change, if it is not searched (bar is empty), list all items. 2. apply the same style change to gallery view.
+
+I'll update the List View to show all items when search is empty, and apply the same styling to Gallery View.
+Now I'll add the same styling to Gallery View:
+I need to import listMealsByFirstLetter and fix the type issues:
+Perfect! I've made both changes:
+List View: Now shows all meals starting with 'a' when search bar is empty (using listMealsByFirstLetter('a') instead of empty search)
+Gallery View: Applied the same styling as List View:
+Added .galleryPage class with yellow background and rounded corners
+Updated Gallery to use mealGrid, mealCard, mealThumb, mealTitle, mealId classes
+Same violet button styling with "Details" text
+Same card background (light leafy green inside violet border)
+Both views now have consistent styling with the modern search controls, violet navbar, and matching card layouts.
+1. I want to change the styles of list view, instead of old layout, I would rather show the content in stack way, just like a list(one column one recipe), inner layout: the pictures smaller at the left, middle above is name with same font style, and middle below is ID with same style, and right is the previous button with the same style. 2.for the gallery View, eliminate the button and "ID", just keep the picture and the name, and clicking the pictures here will show details instead of clicking button before.
+
+I'll update both views: List View to a single-column stack layout with left image, middle name/ID, right button, and Gallery View to remove button/ID and make images clickable.
+Now I'll add styles for Gallery View to make images clickable and remove button/ID:
+Now I'll update the List View to use the new stack layout:
+Now I'll update the Gallery View to remove button/ID and make images clickable:
+I need to import useNavigate for the Gallery View:
+Perfect! I've updated both views as requested:
+List View Changes:
+New stack layout: Single column, one recipe per row
+Layout: Small image (80x80px) on left, name/ID in middle, Details button on right
+Styling: Same font styles for name (orange) and ID (grey), same violet button
+Gallery View Changes:
+Removed: Details button and ID text
+Simplified: Just image and name
+Clickable: Entire card is now clickable to navigate to details
+Hover effect: Cards lift slightly on hover for better UX
+Centered: Recipe names are centered below images
+Both views maintain the same color scheme (yellow background, violet borders, leafy green card interiors) and consistent styling.
+the current latout is in the pictute, now do some changes: 1. change the title from meals to "Recipe Wiki", with first title style aligned in the middle 2. make the search bar larger, aligned in the middle, and stack vertically with the two filter bars 3. change "Sort by:" and "order by:". eliminate the ":", change the color to orange arial bold. 4. for the three bars, give an outer framework with 30% transprancy violet background-color. 5, when search bar is empty, keep the result empty, use alt text "Please search"
+
+I'll make all the requested changes: center the title, stack controls vertically with larger search bar, style labels, add violet background frame, and show empty state when search is empty.
+Now I'll update the List View component to use the new layout and show empty state:
+Now I need to update the useEffect to not load data when query is empty:
+Perfect! I've made all the requested changes:
+✅ Changes Made:
+Title: Changed from "Meals" to "Recipe Wiki" and centered it with larger font (2.5rem)
+Search Bar: Made it larger (max-width 500px) and centered, stacked vertically with filter controls
+Labels: Removed colons from "Sort by" and "Order", changed to orange Arial bold
+Controls Frame: Added 30% transparent violet background container around all controls
+Empty State: When search bar is empty, shows "Please search" message instead of loading data
+Layout Structure:
+Centered title: "Recipe Wiki"
+Violet frame: Contains all controls with 30% transparency
+Vertical stack: Search bar on top, filter controls below
+Horizontal filters: "Sort by" and "Order" side by side
+Empty state: Shows when no search query is entered
+The layout now matches your requirements with a clean, centered design and proper empty state handling.
+good. now, make changes. 1. in gallery view, elimate the name, just keep the pictures. 2. add Area filter to it: this is all area catagories: {"meals":[{"strArea":"American"},{"strArea":"British"},{"strArea":"Canadian"},{"strArea":"Chinese"},{"strArea":"Croatian"},{"strArea":"Dutch"},{"strArea":"Egyptian"},{"strArea":"Filipino"},{"strArea":"French"},{"strArea":"Greek"},{"strArea":"Indian"},{"strArea":"Irish"},{"strArea":"Italian"},{"strArea":"Jamaican"},{"strArea":"Japanese"},{"strArea":"Kenyan"},{"strArea":"Malaysian"},{"strArea":"Mexican"},{"strArea":"Moroccan"},{"strArea":"Polish"},{"strArea":"Portuguese"},{"strArea":"Russian"},{"strArea":"Spanish"},{"strArea":"Thai"},{"strArea":"Tunisian"},{"strArea":"Turkish"},{"strArea":"Ukrainian"},{"strArea":"Uruguayan"},{"strArea":"Vietnamese"}]}
+
+I'll update the Gallery View to remove meal names, add Area filter functionality, and create the API function to fetch areas.
+Perfect! I've successfully updated the Gallery View with both requested changes:
+✅ Changes Made:
+1. Removed Meal Names
+Gallery cards now show only images (no text)
+Clicking anywhere on the card navigates to details
+2. Added Area Filter
+New API functions: listAllAreas() and filterByArea()
+Area categories: All 29 areas from your list (American, British, Canadian, etc.)
+Dual filtering: Users can filter by both Categories AND Areas simultaneously
+Combined results: Shows meals that match any selected category OR area
+Gallery Layout:
+Controls Frame: Same violet background as List View
+Two filter rows:
+"Categories" with category chips
+"Areas" with area chips
+Image-only cards: Clean grid of clickable meal images
+Empty state: Shows nothing when no filters are selected
+The Gallery now provides comprehensive filtering by both meal categories and geographic areas, with a clean image-focused interface.
+the picture is the current style, now 1. align these two items 2. make the title to the title position 3. decompose two fliters into 2 subdivs with purple background-color. 4. when not filtered, list all items (same as choose all catagroies.)
+
+I'll update the Gallery View to align the filters, position titles properly, add purple backgrounds to sub-divs, and show all items when no filters are selected.
+Perfect! I've made all the requested changes to the Gallery View:
+✅ Changes Made:
+1. Aligned the Two Filter Sections
+Both Categories and Areas are now properly aligned in vertical layout
+Consistent spacing and alignment throughout
+2. Positioned Titles Properly
+Changed from <span> to <h3> elements for proper semantic structure
+Titles are now positioned at the top of each filter section
+Orange color maintained for consistency
+3. Added Purple Background Sub-divs
+Each filter section (Categories and Areas) now has its own purple background container
+.filterSubdiv class with violet background and rounded corners
+Proper padding and spacing within each sub-division
+4. Show All Items When Not Filtered
+When no categories or areas are selected, the gallery now shows ALL items
+This is equivalent to selecting all categories (fetches from all categories)
+Users see the full gallery by default, then can filter down as needed
+Layout Structure:
+Outer violet frame: Contains both filter sections
+Categories sub-div: Purple background with orange title and category chips
+Areas sub-div: Purple background with orange title and area chips
+Default behavior: Shows all meals when no filters are active
+Filtered behavior: Shows meals matching selected categories/areas
+The Gallery now has a clean, organized layout with proper visual separation between filter types and shows all content by default.
+don't keep the big controlsframe, just keep the subdiv; for the area filter, make the filter buttons to be 3 rows.
+
+I'll remove the outer controlsFrame and adjust the Area filter buttons to display in 3 rows.
+Perfect! I've made the requested changes:
+✅ Changes Made:
+1. Removed Outer ControlsFrame
+Eliminated the large semi-transparent violet background container
+Now only the individual sub-divs remain with their own backgrounds
+2. Simplified Layout Structure
+Replaced controlsFrame and controlsStack with galleryFiltersContainer
+Direct vertical stacking of the two filter sub-divs
+Cleaner, more minimal design
+3. Area Filter Buttons in 3 Rows
+Added .areaChips class with max-width: 600px
+This constrains the area buttons to wrap into approximately 3 rows
+Categories buttons remain in their original layout
+Layout Structure:
+Categories sub-div: Purple background with category chips
+Areas sub-div: Purple background with area chips constrained to ~3 rows
+No outer frame: Clean, direct layout without extra containers
+Proper spacing: 16px gap between sub-divs
+The Gallery now has a cleaner, more focused design with the area filter buttons properly constrained to 3 rows as requested.
+while you change the gallery, i want the old version for list view.
+
+I'll revert the List View to use the old controlsFrame layout while keeping the Gallery View with the new horizontal layout.
+Perfect! I've restored the old controlsFrame and controlsStack styles for the List View while keeping the new galleryFiltersContainer for the Gallery View.
+✅ Changes Made:
+List View (Old Version Restored)
+controlsFrame: Semi-transparent violet background container
+controlsStack: Vertical layout with centered alignment
+Search bar: Large, centered search input
+Filter controls: Horizontal row below search bar
+Gallery View (New Version Maintained)
+galleryFiltersContainer: Horizontal layout (row direction)
+Filter sub-divs: Side-by-side Categories and Areas
+Updated titles: "Filter by Main Categories" and "Filter by Area"
+Area chips: Constrained to 3 rows
+Now you have:
+List View: Uses the original controlsFrame layout with vertical stacking
+Gallery View: Uses the new horizontal layout with side-by-side filter sections
+Both views maintain their distinct styling while sharing the same underlying CSS classes where appropriate.
+now give some style changes to details, first, put them into a subdiv box,with all the items aligned middlely. 2. change the button of previous and next to the style similar to details button in list view. 3. apply similar font color and size from list view to details. in instructions: you can see "1. 2. 3...." make them as ordered list 
+
+I'll update the Detail View with the requested styling changes: subdiv box with centered alignment, styled navigation buttons, consistent fonts, and ordered list for instructions.
+Now I'll update the DetailView component to use these new styles and structure:
+Perfect! I've applied all the requested style changes to the Detail View:
+✅ Changes Made:
+1. Subdiv Box & Alignment
+The entire detail content (meal name, image, ingredients, instructions, navigation) is now wrapped in a div with className="detailContainer"
+This container has a very shallow leafy green background, violet border, and rounded corners, similar to the cards in other views
+All items within this container are centrally aligned
+2. Previous/Next Button Style
+The "Previous" and "Next" buttons now use the btnViolet class, giving them a violet background, white uppercase text, and bold styling, consistent with the "Details" button in the List View
+3. Font Color & Size
+The meal name (meal.strMeal) now uses the mealTitle style (orange, bold), consistent with the List View's meal names
+Category and Area information use detailCategoryArea for a grey, slightly smaller font
+Section titles ("Ingredients", "Instructions") use detailSectionTitle for a bold violet color
+Ingredient list items and instruction steps have a default dark text color and appropriate sizing
+4. Ordered List for Instructions
+The meal.strInstructions string is now parsed to convert the numbered steps (e.g., "1. Add beef...") into an actual HTML ordered list (<ol><li>...</li></ol>)
+Each step is now a separate list item, improving readability
+These changes ensure the Detail View is visually consistent with the rest of the application and provides a better user experience.
+make the ordered list into inordered list, 2. Make the font of Name: larger and orange 3. make the prragraph font arial rounded MT. 
+
+I'll make those changes: convert ordered list to unordered list, make the meal name larger and orange, and change paragraph font to Arial Rounded MT.
+Now I need to make the meal name larger and orange. Let me check the current mealTitle style:
+Let me check what styles exist for meal titles:
+I need to add a specific style for the meal title in the detail view. Let me add it:
+Perfect! I've made all the requested changes to the Detail View:
+✅ Changes Made:
+1. Ordered List → Unordered List
+Changed list-style: decimal to list-style: disc in .detailInstructionsList
+Changed <ol> to <ul> in the JSX
+Instructions now display as bullet points instead of numbered list
+2. Larger Orange Meal Name
+Created new .detailMealTitle class with:
+Orange color (var(--primary-orange))
+Larger font size (2.2rem)
+Bold weight
+Centered alignment
+Applied this class to the meal name in the detail view
+3. Arial Rounded MT Font for Paragraphs
+Added font-family: 'Arial Rounded MT Bold', Arial, sans-serif to .detailCategoryArea
+This applies to the Category/Area information paragraph
+Summary:
+Instructions: Now display as bullet points (unordered list)
+Meal Name: Larger, orange, bold, and centered
+Category/Area Text: Uses Arial Rounded MT Bold font
+Overall: Maintains the centered container layout with consistent styling
+The Detail View now has the requested styling with a more prominent meal name and the specified font changes.
+in details, add id back, just below the pictures, aliged middle, small gray font, 
+
+I'll add the meal ID below the picture with small gray font and center alignment.
+Perfect! I've added the meal ID back to the Detail View:
+✅ Changes Made:
+Added Meal ID Below Picture
+Position: Placed directly below the meal image
+Styling:
+Small gray font (font-size: 0.8rem)
+Gray color (var(--text-grey))
+Center aligned (text-align: center)
+Arial Rounded MT Bold font family
+Proper spacing with margin: 0 0 15px 0
+Layout Order:
+Meal name (large orange title)
+Category/Area info (gray paragraph)
+Meal image
+Meal ID (small gray, centered) ← NEW
+Ingredients section
+Instructions section
+Navigation buttons
+The meal ID now appears below the picture with the requested styling - small, gray, and center-aligned, maintaining consistency with the overall design.
+make all fonts slightly larger, and to   font-family: 'Arial Rounded MT Bold', Arial, sans-serif; 
+
+I'll make all fonts slightly larger and change them to Arial Rounded MT Bold. First, I'll add the font import to index.css, then update the global body font, and finally adjust specific font sizes throughout the app.
+Now I'll update the specific font sizes in App.css to make them slightly larger:
+Let me check the current topnav styles:
+Now I'll update the page title and other key font sizes:
+Now I'll update the list item styles:
+Let me find the listItemId style:
+Let me check what list item styles exist:
+It seems the listItemId style doesn't exist. Let me continue with other styles. Let me update the button styles:
+Now let me update the detail view styles:
+Now let me update the list styles to include font family:
+Let me also update the chip styles:
+Perfect! I've successfully updated all fonts throughout the application to be slightly larger and use Arial Rounded MT Bold. Here's a summary of the changes:
+✅ Font Updates Applied:
+1. Global Font Setup
+Added @font-face for 'Arial Rounded MT Bold' in index.css
+Updated body font-family to 'Arial Rounded MT Bold', Arial, sans-serif
+Increased base font-size to 1.1em for overall larger text
+2. Specific Font Size Increases
+Navigation: 17px → 18px
+Page Titles: 2.5rem → 2.7rem
+Search Bar: 1.1rem → 1.2rem
+Filter Labels: 1rem → 1.1rem
+Filter Selects: Added 1.1rem font-size
+List Item Titles: 1.1rem → 1.2rem
+Buttons: Added 1.1em font-size
+Detail Meal Title: 2.2rem → 2.4rem
+Detail Section Titles: 1.8rem → 1.6rem (adjusted for better hierarchy)
+Detail Lists: Added 1.1rem font-size
+Chips: Added 1rem font-size
+3. Font Family Applied To
+Navigation links
+Page titles
+Search inputs and selects
+Filter labels and controls
+List item titles
+Buttons (Details, Previous, Next)
+Detail view titles and content
+Category/Area chips
+All list items (ingredients, instructions)
+4. Font Files Required
+You'll need to place these font files in public/fonts/:
+Arial-Rounded-MT-Bold.woff2
+Arial-Rounded-MT-Bold.woff
+The application now uses Arial Rounded MT Bold consistently throughout with slightly larger text sizes for better readability.
+when delopy onto githubpages, error: Run npm ci
+npm error code EUSAGE
+npm error
+npm error `npm ci` can only install packages when your package.json and package-lock.json or npm-shrinkwrap.json are in sync. Please update your lock file with `npm install` before continuing.
+npm error
+npm error Missing: @testing-library/dom@10.4.1 from lock file
+npm error Missing: yaml@2.8.1 from lock file
+npm error
+npm error Clean install a project
+npm error
+npm error Usage:
+npm error npm ci
+npm error
+npm error Options:
+npm error [--install-strategy <hoisted|nested|shallow|linked>] [--legacy-bundling]
+npm error [--global-style] [--omit <dev|optional|peer> [--omit <dev|optional|peer> ...]]
+npm error [--include <prod|dev|optional|peer> [--include <prod|dev|optional|peer> ...]]
+npm error [--strict-peer-deps] [--foreground-scripts] [--ignore-scripts] [--no-audit]
+npm error [--no-bin-links] [--no-fund] [--dry-run]
+npm error [-w|--workspace <workspace-name> [-w|--workspace <workspace-name> ...]]
+npm error [-ws|--workspaces] [--include-workspace-root] [--install-links]
+npm error
+npm error aliases: clean-install, ic, install-clean, isntall-clean
+npm error
+npm error Run "npm help ci" for more info
+npm error A complete log of this run can be found in: /home/runner/.npm/_logs/2025-10-06T23_12_14_697Z-debug-0.log
+Error: Process completed with exit code 1.
+
+The GitHub Pages deployment is failing because the package-lock.json file is out of sync with package.json. This happens when dependencies are added or modified but the lock file isn't updated. Let me fix this by updating the package-lock.json file.
+I can't run terminal commands directly, but I can help you fix this issue. The problem is that your package-lock.json file is out of sync with your package.json. Here's what you need to do:
+🔧 Fix GitHub Pages Deployment Error
+Step 1: Update package-lock.json
+Run these commands in your terminal:
+install
+This will:
+Remove the outdated lock file
+Generate a new package-lock.json that matches your current package.json
+Step 2: Commit and Push Changes
+main
+Step 3: Verify GitHub Pages Deployment
+After pushing, GitHub Actions should automatically trigger and the deployment should succeed.
+🔍 What Caused This Issue?
+The error occurs because:
+Your package.json has dependencies that aren't reflected in package-lock.json
+GitHub Pages uses npm ci which requires exact synchronization
+Missing packages: @testing-library/dom@10.4.1 and yaml@2.8.1
+[1 tool called]
+
+Perfect! I've updated the instructions parsing to eliminate all numbered format "N." from the instructions text.
+
+## ✅ Changes Made:
+
+### **Removed Number Formatting**
+- **Before**: Instructions were parsed to preserve numbered steps like "1.", "2.", "3.", etc.
+- **After**: All number patterns like "1.", "2.", "6." are completely removed using regex `/\d+\.\s*/g`
+
+### **Improved Text Splitting**
+- **New approach**: Split instructions by sentence endings (`.`, `!`, `?`) instead of by numbers
+- **Regex**: `/(?<=[.!?])\s+/` splits after sentence-ending punctuation
+- **Result**: Clean, readable instruction steps without any numbering artifacts
+
+### **Example Transformation**
+**Before**: 
+- "1. Preheat the oven to 200°C"
+- "6. fry sausages in a non-stick pan..."
+
+**After**:
+- "Preheat the oven to 200°C"
+- "fry sausages in a non-stick pan..."
+
+This simplifies the display by removing all the problematic numbering formats while maintaining readable instruction steps. The instructions will now appear as clean bullet points without any number prefixes.
